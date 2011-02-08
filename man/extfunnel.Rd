@@ -1,57 +1,57 @@
 \name{extfunnel}
 \alias{extfunnel}
 \title{Additional Funnel Plot Augmentations}
-\description{This is a package containing the function \code{"extfunnel()"} which produces 
-	a funnel plot including additional augmentations such as statistical significance 
-	contours and heterogeneity contours.}
+\description{This is a package containing the function \code{extfunnel()} which produces a funnel plot including additional augmentations such as statistical significance contours and heterogeneity contours.}
 \usage{extfunnel(SS, seSS, method, 
-	sig.level=0.05, contour=FALSE, isquared=NULL, tausquared=NULL, 
-	contour.points=200, summ=FALSE, summ.pos=0, pred.interval=FALSE, 
-	plot.zero=FALSE, plot.summ=FALSE, ylim=NULL, xlim=NULL, legend=TRUE,
-	expxticks=NULL, xticks=NULL, yticks=NULL, zero=0, xlab=NULL, 
-	ylab=NULL, legendpos=c(xlim[2]+0.05*(xlim[2]-xlim[1]),ylim[2]), 
-	xpoints=NULL, ypoints=NULL, points=TRUE)}
+	  sig.level=0.05, contour=FALSE, isquared=NULL, tausquared=NULL, 
+	  contour.points=200, summ=FALSE, summ.pos=0, pred.interval=FALSE, 
+	  plot.zero=FALSE, plot.summ=FALSE, ylim=NULL, xlim=NULL, legend=TRUE,
+	  expxticks=NULL, xticks=NULL, yticks=NULL, zero=0, xlab=NULL, 
+	  ylab=NULL, legendpos=c(xlim[2]+0.05*(xlim[2]-xlim[1]),ylim[2]), 
+	  xpoints=NULL, ypoints=NULL, points=TRUE)}
 \arguments{
  
-  \item{SS}{Effect estimates of the current studies.  \code{"SS"} is assumed to be normally distributed. Odds ratios , for example, 
+  \item{SS}{Effect estimates of the current studies.  \code{SS} is assumed to be normally distributed meaning odds ratios, for example, 
 	should be log-transformed.}
-  \item{seSS}{Standard errors of the study effect estimates \code{"SS"}.}
-  \item{method}{Choice of inverse variance method, \code{""fixed" or "random""}.}
+  \item{seSS}{Standard errors of the study effect estimates \code{SS}.}
+  \item{method}{Choice of fixed or random effects, \code{method="fixed"} or \code{method="random"}.}
   \item{sig.level}{Significance level in decimal form.}
-  \item{contour}{If \code{"TRUE"}, displays statistical significance contours.}
-  \item{isquared}{Values that define the I-squared contours.  Must be a vector of maximum length 4 (\code{"c(i1, i2, i3, i4)"}) and should be in the range 0-100.
-	To compute an I-squared contour based on the current I-squared, set one element of the vector to -1.}
-  \item{tausquared}{Values that define the Tau-squared contours.  Must be a vector of maximum length 4 and should be in the range \code{"0-Inf"}.
-	To compute a Tau-squared contour based on the current Tau-squared, set one element of the vector to -1.}
+  \item{contour}{If \code{contour="TRUE"}, displays statistical significance contours.}
+  \item{isquared}{Values that define the I-squared contours.  Must be a vector of maximum length 4 and should have elements in the range 0-100.
+	To compute an I-squared contour based on the current I-squared, set one element of the vector to -1. The I-squared contours will not be displayed
+	if the \code{isquared} argument is not used.}
+  \item{tausquared}{Values that define the Tau-squared contours.  Must be a vector of maximum length 4 and should have elements in the range 0-Inf.
+	To compute a Tau-squared contour based on the current Tau-squared, set one element of the vector to -1. The Tau-squared contours will not be displayed
+	if the \code{tausquared} argument is not used.}
   \item{contour.points}{The smoothing constant for any contour. A greater number means a smoother contour but this takes longer to compute.}
-  \item{summ}{If \code{"TRUE"}, a summary diamond including pooled effect and confidence interval is included (significance level as defined by \code{sig.level}).}
-  \item{summ.pos}{Vertical position of the summary diamond \code{"summ"}.}
+  \item{summ}{If \code{summ="TRUE"}, a summary diamond including pooled effect and confidence interval is included (significance level as defined by \code{sig.level}).}
+  \item{summ.pos}{Vertical position of the summary diamond \code{summ}.}
   \item{pred.interval}{Displays a predicitve interval (Higgins J, 2009) along with the summary diamond \code{"summ"} 
 	(significance level as defined by \code{"sig.level"}).}
-  \item{plot.zero}{If \code{"TRUE"}, plots a vertical line which represents the null effect (defined by \code{"zero"}).}
-  \item{plot.summ}{If \code{"TRUE"}, plots a vertical line which represents the current pooled estimate.}
-  \item{ylim}{Limits of the y-axis, in the form \code{"c(y1,y2)"}.}
-  \item{xlim}{Limits of the x-axis, in the form \code{"c(x1,x2)"}.}
-  \item{legend}{If \code{"TRUE"} (default), a key/legend is displayed.}
-  \item{expxticks}{A vector of custom ticks for the x-axis on an exponential scale in the form \code{"c(x1, x2, ...)"}. 
-	If this argument is used, the effect estimates \code{"SS"} are assumed to be log-transformed.}
-  \item{xticks}{A vector of custom ticks for the x-axis in the form \code{"c(x1, x2, ...)"}.}
-  \item{yticks}{A vector of custom ticks for the y-axis in the form \code{"c(y1, y2, ...)"}.}
+  \item{plot.zero}{If \code{plot.zero="TRUE"}, plots a vertical line which represents the null effect (defined by \code{zero}).}
+  \item{plot.summ}{If \code{plot.summ="TRUE"}, plots a vertical line which represents the current pooled estimate.}
+  \item{ylim}{Limits of the y-axis, in the form \code{c(y1,y2)}.}
+  \item{xlim}{Limits of the x-axis, in the form \code{c(x1,x2)}.}
+  \item{legend}{If \code{legend="TRUE"} (default), a key/legend is displayed.}
+  \item{expxticks}{A vector of custom ticks for the x-axis on an exponential scale in the form \code{c(x1,x2,...)}. 
+	If this argument is used, the input effect estimates \code{SS} are assumed to be log-transformed.}
+  \item{xticks}{A vector of custom ticks for the x-axis in the form \code{c(x1,x2,...)}.}
+  \item{yticks}{A vector of custom ticks for the y-axis in the form \code{c(y1,y2,...)}.}
   \item{zero}{Value for the null effect.}
   \item{xlab}{Label for the x-axis.}
   \item{ylab}{Label for the y-axis.}
-  \item{legendpos}{Position of the legend (where \code{"legend"}=\code{"TRUE"}). Defined at the upper left hand corner on the x and y axis scales in the form \code{"c(x, y)"}.}
-  \item{xpoints}{Add extra point(s) in the plot to show as an example - Values along the x-axis.  Must be the same length as \code{"ypoints"}.}
-  \item{ypoints}{Add extra point(s) in the plot to show as an example - Values along the y-axis.  Must be the same length as \code{"xpoints"}.}
-  \item{points}{If \code{"FALSE"}, the scatter of studies is not displayed.}
+  \item{legendpos}{Position of the legend (where \code{legend="TRUE"}). Defined at the upper left hand corner on the x and y axis scales in the form \code{c(x,y)}.}
+  \item{xpoints}{Add extra point(s) in the plot to show as an example - Values along the x-axis.  Must be the same length as \code{ypoints}.}
+  \item{ypoints}{Add extra point(s) in the plot to show as an example - Values along the y-axis.  Must be the same length as \code{xpoints}.}
+  \item{points}{If \code{points="FALSE"}, the scatter of studies is not displayed.}
 
 }
 \details{
-Note that this function becomes computationally intense if \code{"method"}=\code{""random""} and \code{"contour"}=\code{"TRUE"}.  
-Choosing as small number of contour points (i.e. \code{"contour.points"}=\code{"50"})  is recommended which produces a 'rough'graph for exploratory purposes before producing a final graph.  In this case, \code{"contour.points"}=\code{"500"} is recommended for producing smoothed/detailed graphs.
+Note that this function becomes computationally intense if \code{method="random"} and \code{contour="TRUE"}.  
+Choosing as small number of contour points (i.e. \code{contour.points=50})  is recommended which produces a 'rough'graph for exploratory purposes before producing a final graph.  In this case, \code{contour.points=500} is recommended for producing smoothed/detailed graphs.
 
 
-The R-package \code{"rmeta"} must be installed and loaded before \code{"extfunnel"} will work.
+The R-package \code{rmeta} must be installed and loaded before \code{extfunnel} will work.
 
 }
 
