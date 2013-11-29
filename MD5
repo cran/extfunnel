@@ -1,4 +1,5 @@
-78fe258ebfff237e396c8490fb0fb93e *DESCRIPTION
-b8266dcaccf7187f6524288353bb05f8 *NAMESPACE
-a5b84a0b97aa62cf5c3a574c7ba5798a *R/zextfunnelpub17.R
-e8dda6bb49632ce367fa7841fb76c76c *man/extfunnel.Rd
+13e6ea019bfbad74e30c967c5a9a08a3 *DESCRIPTION
+df390c53434517b304ac5db487184641 *NAMESPACE
+6db75f350fe7eaf92d3a4ab7b8714dea *R/zextfunnelpub17.R
+79fa1b072184b19a35e39bbf24f9538e *man/extfunnel-package.Rd
+2c9a9ee8ef3fd73e9e44a014475ae986 *man/extfunnel.Rd

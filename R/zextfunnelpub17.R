@@ -28,7 +28,8 @@
 #summ - summary diamond including pooled effect and confidence interval (significance level as defined by sig.level		#
 #xpoints/ypoints - add an extra point(s) in the plot just to show as an example								#
 #points - whether the study points should be displayed at all (TRUE default)								#
-#pred.interval - displays predictive interval allong with the summary diamond.
+#pred.interval - displays predictive interval allong with the summary diamond.								#
+#rand.load - show percentage of computations complete when the random effects contours are calculated				#
 ############################################################################################################################
 
 
@@ -36,7 +37,7 @@
 extfunnel <- function(SS, seSS, method, 
 	sig.level=0.05, contour=FALSE, isquared=NULL, tausquared=NULL, contour.points=200, summ=FALSE,
 	summ.pos=0, pred.interval=FALSE, plot.zero=FALSE, plot.summ=FALSE, ylim=NULL, xlim=NULL, legend=TRUE,
-	expxticks=NULL, xticks=NULL, yticks=NULL, zero=0, xlab=NULL, ylab=NULL, 
+	expxticks=NULL, xticks=NULL, yticks=NULL, zero=0, xlab=NULL, ylab=NULL, rand.load=10,
 	legendpos=c(xlim[2]+0.05*(xlim[2]-xlim[1]),ylim[2]), xpoints=NULL, ypoints=NULL, points=TRUE) {
 
 
@@ -46,7 +47,7 @@ if (!is.null(isquared) & !is.null(tausquared)) stop("Tau^2 and I^2 contours cann
 
 ##### Checks of required packages
 #rmeta used for the function meta.summaries
-require("rmeta") || stop("`rmeta' package not found")
+#require("rmeta") || stop("`rmeta' package not found")
 
 #Converts the significance level into 'z' from the normal distribution (i.e. 0.05 -> 1.96)
 ci <- qnorm(1-((sig.level)/2))
@@ -260,6 +261,17 @@ if (method=="random")  {
    overmax <- 0
 
    for (i in 1: length(csize))  {
+
+	#display percentage of computation complete
+	if (rand.load>0) {
+   	   roundi<-i/rand.load
+	   flush.console()
+   	   if (roundi==round(roundi,0)) {
+   	      perc_complete <- (i/contour.points)*100
+	      cat(perc_complete, "%")
+	   }
+	   else cat(".")
+	}
 
 	if ( !is.na(csize[i]) ) {
 

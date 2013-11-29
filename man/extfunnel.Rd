@@ -7,7 +7,7 @@
 	  contour.points=200, summ=FALSE, summ.pos=0, pred.interval=FALSE, 
 	  plot.zero=FALSE, plot.summ=FALSE, ylim=NULL, xlim=NULL, legend=TRUE,
 	  expxticks=NULL, xticks=NULL, yticks=NULL, zero=0, xlab=NULL, 
-	  ylab=NULL, legendpos=c(xlim[2]+0.05*(xlim[2]-xlim[1]),ylim[2]), 
+	  ylab=NULL, rand.load=10, legendpos=c(xlim[2]+0.05*(xlim[2]-xlim[1]),ylim[2]), 
 	  xpoints=NULL, ypoints=NULL, points=TRUE)}
 \arguments{
  
@@ -44,6 +44,7 @@
   \item{xpoints}{Add extra point(s) in the plot to show as an example - Values along the x-axis.  Must be the same length as \code{ypoints}.}
   \item{ypoints}{Add extra point(s) in the plot to show as an example - Values along the y-axis.  Must be the same length as \code{xpoints}.}
   \item{points}{If \code{points="FALSE"}, the scatter of studies is not displayed.}
+  \item{rand.load}{How often to update percentage of computations that are complete. Only when \code{method="random"}.}
 
 }
 \details{
